@@ -1,0 +1,6 @@
+supplier_id,supplier_name,product_id,promised_lead_days,payment_terms,contact_email
+S001,RajMetal Works,P001,7,Net-30,raj@rajmetal.in
+S002,BharatElectro,P002,14,Net-45,orders@bharatelectro.in
+S003,IndoPipe Ltd,P003,5,Net-30,supply@indopipe.in
+S004,MetalCraft India,P004,21,Net-60,procurement@metalcraft.in
+S001,RajMetal Works,P005,3,Net-30,raj@rajmetal.in
