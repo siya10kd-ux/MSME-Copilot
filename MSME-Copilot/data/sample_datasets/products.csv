@@ -1,0 +1,6 @@
+product_id,product_name,category,unit_cost,selling_price,reorder_point,lead_time_days
+P001,Steel Bolts M8,Fasteners,12.5,22.0,500,7
+P002,Copper Wire 2mm,Electrical,45.0,78.0,200,14
+P003,PVC Pipe 1inch,Plumbing,18.0,31.0,300,5
+P004,Aluminium Sheet,Raw Metal,220.0,310.0,50,21
+P005,Rubber Gasket Set,Sealing,8.0,19.0,800,3
