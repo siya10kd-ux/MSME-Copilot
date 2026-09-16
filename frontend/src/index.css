@@ -1,0 +1,132 @@
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #12202b;
+  background: #eef3f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background: #123047;
+  color: #fff;
+  padding: 24px 18px;
+}
+
+.sidebar h1 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.tagline {
+  margin: 0 0 24px;
+  color: #b9c9d4;
+  font-size: 0.85rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+nav a {
+  color: #d7e4ed;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+nav a.active,
+nav a:hover {
+  background: #1d4d6d;
+  color: #fff;
+}
+
+.content {
+  flex: 1;
+  padding: 28px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #e3e8ec;
+}
+
+button,
+input[type="text"],
+textarea,
+input[type="file"] {
+  font: inherit;
+}
+
+button {
+  background: #1d6ea8;
+  color: #fff;
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c5d0d8;
+  border-radius: 6px;
+}
+
+.advice {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.error {
+  color: #a12626;
+}
+
+.muted {
+  color: #5b6b75;
+}

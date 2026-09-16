@@ -43,6 +43,7 @@ Business → Document Agent → Finance Agent → Inventory Agent → Supplier A
 ```bash
 cd msme-copilot
 pip install -r requirements.txt
+python data/generate_synthetic_data.py
 python main.py --check-ollama
 ```
 
@@ -64,6 +65,7 @@ msme-copilot/
 ├── data/            # Raw, processed, sample datasets
 ├── db/              # ChromaDB vector store, SQLite store
 ├── config/          # Settings and prompts
+├── frontend/        # React + Vite UI
 ├── main.py          # CLI entry point
 └── api.py           # FastAPI backend
 ```
