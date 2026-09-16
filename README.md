@@ -20,39 +20,43 @@ Multi-agent LangGraph workflow with local Ollama LLMs:
 Business → Document Agent → Finance Agent → Inventory Agent → Supplier Agent → Business Advisor
 ```
 
+If no document is uploaded, the Document Agent is skipped. Finance, Inventory, and Supplier still run on existing database data, then the Business Advisor answers.
+
 ## Tech Stack
 
 - **LangGraph** — agent orchestration
-- **Ollama** — local LLM inference (qwen2.5-coder:7b-instruct)
+- **Ollama** — local LLM inference (model names in `config/settings.py`)
 - **LangChain** — LLM wrappers and prompts
 - **ChromaDB** — document memory
 - **SQLite** — structured business metrics
-- **FastAPI** — backend API
-- **React + Vite** — frontend UI
+- **Streamlit** — frontend UI
 
 ## Setup
 
 ### Prerequisites
 
 - Python 3.10+
-- [Ollama](https://ollama.com/) with `qwen2.5-coder:7b-instruct` pulled
-- Node.js 18+ (for frontend)
+- [Ollama](https://ollama.com/) with the models listed in `config/settings.py`
 
-### Backend
+### Install
 
 ```bash
-cd msme-copilot
 pip install -r requirements.txt
 python data/generate_synthetic_data.py
-python main.py --check-ollama
 ```
 
-### Frontend
+### Run the UI
 
 ```bash
-cd frontend
-npm install
-npm run dev
+streamlit run frontend/app.py
+```
+
+The Streamlit app calls backend modules (`main.py`, SQLite store, PO and report tools). It does not embed LangGraph agents in the UI.
+
+### CLI
+
+```bash
+python main.py --question "Which products are profitable but frequently delayed?"
 ```
 
 ## Project Structure
@@ -65,21 +69,10 @@ msme-copilot/
 ├── data/            # Raw, processed, sample datasets
 ├── db/              # ChromaDB vector store, SQLite store
 ├── config/          # Settings and prompts
-├── frontend/        # React + Vite UI
-├── main.py          # CLI entry point
-└── api.py           # FastAPI backend
+├── frontend/        # Streamlit UI
+└── main.py          # CLI / workflow entry point
 ```
 
 ## Sample Data
 
-Synthetic datasets are in `data/sample_datasets/` with a fixed random seed for reproducible demos.
-
-## Usage
-
-```bash
-# Run workflow from CLI
-python main.py --question "Which products are profitable but frequently delayed?"
-
-# Start API server
-uvicorn api:app --reload --port 8000
-```
+Synthetic datasets are in `data/sample_datasets/`. `data/generate_synthetic_data.py` uses a fixed random seed (`RANDOM_SEED` in `config/settings.py`).
